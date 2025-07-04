@@ -30,6 +30,11 @@ let Mydevtools = () => {
             <h1 className="itag">
               <i class="fa-solid fa-database"></i>
             </h1><p>Language for managing databases.</p>
+          </div><div className="carddev">
+            <h3>sql</h3>
+            <h1 className="itag">
+              <i class="fa-solid fa-database"></i>
+            </h1><p>Language for managing databases.</p>
           </div>
         </div>
       </div>
