@@ -199,6 +199,8 @@
 .carddev:hover{
   box-shadow: 0px 3px 9px  rgb(61, 215, 224);
   cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.6s ease-in-out;
 }
 .carddev p{
   color: white;
