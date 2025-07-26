@@ -1,5 +1,6 @@
 
 import './App.css'
+import ContactForm from './components/ContactForm'
 import Homepage from './components/Homepage'
 import Mydevtools from './components/Mydevassrails'
 import Navbar from './components/Navbar'
@@ -13,9 +14,8 @@ function App() {
       <Navbar></Navbar>
       <Homepage></Homepage>
       <Mydevtools></Mydevtools>
-
+      <ContactForm></ContactForm>
       
-
     </div>
     
       

@@ -73,6 +73,13 @@ let Mydevtools = () => {
             <p>Code hosting & version control.</p>
           </div>
           <div className="carddev">
+            <h3>Git</h3>
+            <h1 className="itag">
+              <i className="fa-brands fa-git-alt"></i>
+            </h1>
+            <p>Version control system for tracking code changes.</p>
+          </div>
+          <div className="carddev">
             <h3>VS Code</h3>
             <h1 className="itag">
               <i className="fa-solid fa-code"></i>
