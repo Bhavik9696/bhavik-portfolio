@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,63 +22,43 @@ const ContactForm = () => {
   };
 
   const handleSubmit = (e) => {
-    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScvkPrTGGG5rrajpktmphuAF6sqFJfFNTtw11-1X0TuvqGkJQ/formResponse";
+    e.preventDefault();
+    if (!formData.isHuman) {
+      alert("Please verify you're not a robot.");
+      return;
+    }
 
-// Replace these with actual entry IDs from your Google Form
-const entryIds = {
-  name: "entry.1111111111",
-  email: "entry.2222222222",
-  subject: "entry.3333333333",
-  message: "entry.4444444444",
-  contactMethod: "entry.5555555555",
-  heardAbout: "entry.6666666666"
-};
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  if (!formData.isHuman) {
-    alert("Please verify you're not a robot.");
-    return;
-  }
-
-  const formBody = new FormData();
-  formBody.append(entryIds.name, formData.name);
-  formBody.append(entryIds.email, formData.email);
-  formBody.append(entryIds.subject, formData.subject);
-  formBody.append(entryIds.message, formData.message);
-  formBody.append(entryIds.contactMethod, formData.contactMethod);
-  formBody.append(entryIds.heardAbout, formData.heardAbout);
-
-  fetch(GOOGLE_FORM_ACTION_URL, {
-    method: "POST",
-    mode: "no-cors",
-    body: formBody,
-  })
-    .then(() => {
-      alert("Message sent successfully!");
-      setFormData({
-        name: '',
-        email: '',
-        subject: 'General Inquiry',
-        message: '',
-        contactMethod: 'Email',
-        heardAbout: '',
-        isHuman: false
+    emailjs.sendForm(
+      'service_97idowe',        // Service ID
+      'template_s66o2dn',       // Template ID
+      formRef.current,
+      'jVQkhPxJlBL7NP-E5'       // Public key
+    )
+      .then(() => {
+        alert("Message sent successfully!");
+        setFormData({
+          name: '',
+          email: '',
+          subject: 'General Inquiry',
+          message: '',
+          contactMethod: 'Email',
+          heardAbout: '',
+          isHuman: false
+        });
+      })
+      .catch((err) => {
+        console.error("EmailJS Error:", err);
+        alert("Something went wrong.");
       });
-    })
-    .catch((err) => {
-      console.error("Error submitting to Google Form", err);
-      alert("Something went wrong.");
-    });
-
-};
-
-
   };
 
   return (
-    <div className="bg-#0a192f text-white min-h-screen flex items-center justify-center p-6">
-      <form onSubmit={handleSubmit} className="w-full max-w-4xl space-y-6 bg-#0a192f p-8 rounded-xl shadow-xl text-white">
+    <div className="bg-[#0a192f] text-white min-h-screen flex items-center justify-center p-6">
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="w-full max-w-4xl space-y-6 p-8 rounded-xl shadow-xl bg-[#0a192f]"
+      >
         <h2 className="text-3xl font-bold mb-6">Let's Connect</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
