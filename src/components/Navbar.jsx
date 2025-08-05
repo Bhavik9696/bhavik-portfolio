@@ -6,7 +6,19 @@ import gmailsvg from "../assets/gmailsvg.svg";
 let Navbar = () => {
   return (
     <div className="maincontainer">
-      <div className="navcontainer">
+      <div
+        className="navcontainer flex bg-[rgba(255,255,255,0.138)] backdrop-blur-[40px] 
+                w-[260px] 
+                h-10
+                mt-[9px] 
+                rounded-[12px] 
+                border-[2px] 
+                border-[rgba(206,205,205,0.114)] 
+                shadow-[0px_1px_5px_rgb(17,39,204)] 
+                fixed 
+                z-[999]
+"
+      >
         <div className="icon">
           <ul>
             <li>
@@ -31,9 +43,6 @@ let Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="icon"></div>
-        <div className="icon"></div>
-        <div className="icon"></div>
       </div>
     </div>
   );

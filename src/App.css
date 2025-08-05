@@ -3,11 +3,10 @@
   padding: 0px;
 }
 
-.navcontainer {
-  display: flex;
-  background-color:rgba(255, 255, 255, 0.138);   /* darker and more transparent */
-  backdrop-filter: blur(40px);              /* apply blur */
-  -webkit-backdrop-filter: blur(12px);      /* for Safari support */
+/* .navcontainer { */
+  /* background-color:rgba(255, 255, 255, 0.138);    */
+  /* backdrop-filter: blur(40px);             
+  -webkit-backdrop-filter: blur(12px);  
   width: 260px;
   border-radius: 12px;
   border: 2px solid rgba(206, 205, 205, 0.114); 
@@ -15,8 +14,8 @@
   margin-top: 9px;
   box-shadow: 0px 1px 5px rgb(17, 39, 204);
   position: fixed;
-  z-index: 999;
-}
+  z-index: 999; */
+/* } */
 
 
 .navcontainer .icon ul{
